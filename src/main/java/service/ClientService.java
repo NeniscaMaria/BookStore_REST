@@ -1,9 +1,8 @@
 package service;
 
-import domain.Client;
-import domain.Purchase;
-import domain.validators.Validator;
-import domain.validators.ValidatorException;
+import model.Client;
+import model.validators.Validator;
+import model.validators.ValidatorException;
 import net.bytebuddy.asm.Advice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 import repository.Repository;
 
 import javax.transaction.Transactional;
-import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -26,11 +24,11 @@ import java.util.stream.StreamSupport;
 public class ClientService {
     private static final Logger log = LoggerFactory.getLogger(ClientService.class);
     @Autowired
-    private Repository<Long, domain.Client> repository;
+    private Repository<Long, model.Client> repository;
     @Autowired
     private Validator<Client> validator;
 
-    public Optional<Client> addClient(domain.Client client){
+    public Optional<Client> addClient(model.Client client){
         log.trace("addClient - method entered client={}",client);
         validator.validate(client);
         try {
@@ -66,7 +64,7 @@ public class ClientService {
     }
 
     @Transactional
-    public void updateClient(domain.Client client) {
+    public void updateClient(model.Client client) {
         log.trace("updateClient - method entered: client={}", client);
         validator.validate(client);
         repository.findById(client.getId())
@@ -78,18 +76,18 @@ public class ClientService {
         log.trace("updateClient - method finished");
     }
 
-    public Set<domain.Client> getAllClients() {
+    public Set<model.Client> getAllClients() {
         log.trace("getAlClients - method entered");
-        Iterable<domain.Client> clients = repository.findAll();
+        Iterable<model.Client> clients = repository.findAll();
         Set<Client> result = StreamSupport.stream(clients.spliterator(), false).collect(Collectors.toSet());
         log.trace("getAllClients - method finished and returned clients={}",clients);
         return result;
     }
 
-    public Set<domain.Client> filterClientsByName(String s)  {
+    public Set<model.Client> filterClientsByName(String s)  {
         log.trace("filterClientsByName - method entered name={}",s);
-        Iterable<domain.Client> clients = repository.findAll();
-        Set<domain.Client> filteredClients= new HashSet<>();
+        Iterable<model.Client> clients = repository.findAll();
+        Set<model.Client> filteredClients= new HashSet<>();
         clients.forEach(filteredClients::add);
         filteredClients.removeIf(student -> !student.getName().contains(s));
         log.trace("filterClientsByname - method finished and returned c={}",filteredClients);

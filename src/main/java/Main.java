@@ -7,7 +7,7 @@ public class Main {
         System.out.println("Starting the application...");
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(
-                        "config","domain","repository","service","ui"
+                        "config", "model","repository","service","ui"
                 );
         context.getBean(Console.class).runConsole();
 

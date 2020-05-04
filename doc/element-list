@@ -1,6 +1,6 @@
 unnamed package
-domain
-domain.validators
+model
+model.validators
 repository
 service
 ui

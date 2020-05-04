@@ -1,8 +1,8 @@
 package service;
 
-import domain.Purchase;
-import domain.validators.Validator;
-import domain.validators.ValidatorException;
+import model.Purchase;
+import model.validators.Validator;
+import model.validators.ValidatorException;
 import net.bytebuddy.dynamic.DynamicType;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import repository.PurchaseRepository;
-import repository.Repository;
 
 import javax.transaction.Transactional;
 import java.sql.SQLException;
@@ -29,7 +28,7 @@ public class PurchaseService {
     @Autowired
     private Validator<Purchase> validator;
 
-    public void addPurchase(domain.Purchase purchase) throws ValidatorException{
+    public void addPurchase(model.Purchase purchase) throws ValidatorException{
         log.trace("addPurchase - method entered: purchase = {}",purchase);
         validator.validate(purchase);
         repository.save(purchase);
@@ -60,7 +59,7 @@ public class PurchaseService {
     }
 
     @Transactional
-    public void updatePurchase(domain.Purchase purchase) throws ValidatorException {
+    public void updatePurchase(model.Purchase purchase) throws ValidatorException {
         validator.validate(purchase);
         log.trace("updatePurchase - method entered: purchase = {}",purchase);
         repository.findById(purchase.getId())
@@ -76,7 +75,7 @@ public class PurchaseService {
     @Transactional
     public Set<Purchase> getAllPurchases() throws SQLException {
         log.trace("getAllPurchases - method entered");
-        Iterable<domain.Purchase> purchases= repository.findAll();
+        Iterable<model.Purchase> purchases= repository.findAll();
         log.trace("getAllPurchase - purchases got p={}",purchases);
         Set<Purchase> result = StreamSupport.stream(purchases.spliterator(), false).collect(Collectors.toSet());
         log.trace("getAllPurchases - method finished. Returned: {} ",result);
@@ -84,10 +83,10 @@ public class PurchaseService {
     }
 
     @Transactional
-    public Set<domain.Purchase> filterPurchasesByClientID(Long clientID)  {
+    public Set<model.Purchase> filterPurchasesByClientID(Long clientID)  {
         log.trace("filterPurchasesByClientID - method entered: id={}",clientID);
-        Iterable<domain.Purchase> purchases = repository.findAll();
-        Set<domain.Purchase> filteredPurchases= new HashSet<>();
+        Iterable<model.Purchase> purchases = repository.findAll();
+        Set<model.Purchase> filteredPurchases= new HashSet<>();
         purchases.forEach(filteredPurchases::add);
         filteredPurchases.removeIf(purchase -> !(purchase.getClientID()==clientID));
         log.trace("filterPurchasesByClientID - method finished");

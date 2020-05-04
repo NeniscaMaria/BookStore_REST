@@ -1,22 +1,17 @@
 package service;
 
-import domain.Book;
-import domain.Client;
-import domain.validators.Validator;
-import domain.validators.ValidatorException;
+import model.Book;
+import model.validators.Validator;
+import model.validators.ValidatorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.xml.sax.SAXException;
 import repository.Repository;
 
 import javax.transaction.Transactional;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
@@ -42,7 +37,7 @@ public class BookService {
 
     public Set<Book> getAllBooks() throws SQLException {
         log.trace("getAllBooks - method entered");
-        Iterable<domain.Book> books = repository.findAll();
+        Iterable<model.Book> books = repository.findAll();
         Set<Book> result = StreamSupport.stream(books.spliterator(), false).collect(Collectors.toSet());
         log.trace("getAllBooks - method finished. Returned: {}",result);
         return result;
@@ -55,7 +50,7 @@ public class BookService {
         return result;
     }
 
-    public Set<domain.Book> filterBooksByTitle(String s) throws SQLException {
+    public Set<model.Book> filterBooksByTitle(String s) throws SQLException {
         log.trace("filterBooksByTitle - method entered title={}",s);
         Iterable<Book> books = repository.findAll();
 

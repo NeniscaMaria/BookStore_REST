@@ -1,6 +1,6 @@
 package repository;
 
-import domain.Client;
+import model.Client;
 
 public interface ClientRepository extends Repository<Long, Client> {
 }

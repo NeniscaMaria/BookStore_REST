@@ -1,31 +1,22 @@
 package ui;
 
-import domain.Book;
-import domain.Client;
-import domain.Purchase;
-import domain.validators.BookValidator;
-import domain.validators.Validator;
-import domain.validators.ValidatorException;
+import model.Book;
+import model.Client;
+import model.Purchase;
+import model.validators.BookValidator;
+import model.validators.Validator;
+import model.validators.ValidatorException;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
-import org.xml.sax.SAXException;
-import service.PurchaseService;
 
-import javax.swing.text.html.Option;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 @Component
 public class Console {
@@ -149,7 +140,7 @@ public class Console {
             System.out.println("Filter after: ");
             String name = bufferRead.readLine();
             System.out.println("filtered clients (name containing "+name+" ):");
-            Set<domain.Client> students = clientService.filterClientsByName(name);
+            Set<model.Client> students = clientService.filterClientsByName(name);
             students.stream().forEach(System.out::println);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -208,7 +199,7 @@ public class Console {
             System.out.println("Name: ");
             String name = bufferRead.readLine();
 
-            domain.Client student = new domain.Client(serialNumber, name);
+            model.Client student = new model.Client(serialNumber, name);
             student.setId(id);
 
             return Optional.of(student);
@@ -347,7 +338,7 @@ public class Console {
     }
 
 
-    private Optional<domain.Book> readBook() {
+    private Optional<model.Book> readBook() {
         // Input book from keyboard
         System.out.println("Please enter a new book: ");
 
@@ -368,7 +359,7 @@ public class Console {
             System.out.println("In stock: ");
             int stock = Integer.parseInt(bufferRead.readLine());
 
-            domain.Book book = new domain.Book(serialNumber, name, author, year, price, stock);
+            model.Book book = new model.Book(serialNumber, name, author, year, price, stock);
             book.setId(id);
 
             return Optional.of(book);

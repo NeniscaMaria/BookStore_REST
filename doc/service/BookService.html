@@ -120,7 +120,7 @@ extends java.lang.Object</pre>
 </thead>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><code>private <a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</code></td>
+<td class="colFirst"><code>private <a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#repository">repository</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -146,7 +146,7 @@ extends java.lang.Object</pre>
 </thead>
 <tbody>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(repository.Repository)">BookService</a></span>&#8203;(<a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;&nbsp;repository)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(repository.Repository)">BookService</a></span>&#8203;(<a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in model">Book</a>&gt;&nbsp;repository)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -173,17 +173,17 @@ extends java.lang.Object</pre>
 </thead>
 <tbody>
 <tr class="altColor" id="i0">
-<td class="colFirst"><code>java.util.Optional&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addBook(domain.Book)">addBook</a></span>&#8203;(<a href="../domain/Book.html" title="class in domain">Book</a>&nbsp;book)</code></th>
+<td class="colFirst"><code>java.util.Optional&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addBook(domain.Book)">addBook</a></span>&#8203;(<a href="../domain/Book.html" title="class in model">Book</a>&nbsp;book)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i1">
-<td class="colFirst"><code>java.util.Set&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Set&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterBooksByName(java.lang.String)">filterBooksByName</a></span>&#8203;(java.lang.String&nbsp;s)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i2">
-<td class="colFirst"><code>java.util.Set&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.Set&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAllBooks()">getAllBooks</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -212,7 +212,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <section class="detail">
 <h3><a id="repository">repository</a></h3>
-<div class="memberSignature"><span class="modifiers">private</span>&nbsp;<span class="returnType"><a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</span>&nbsp;<span class="memberName">repository</span></div>
+<div class="memberSignature"><span class="modifiers">private</span>&nbsp;<span class="returnType"><a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</span>&nbsp;<span class="memberName">repository</span></div>
 </section>
 </li>
 </ul>
@@ -228,7 +228,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <section class="detail">
 <h3><a id="&lt;init&gt;(repository.Repository)">BookService</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BookService</span>&#8203;(<span class="arguments"><a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;&nbsp;repository)</span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">BookService</span>&#8203;(<span class="arguments"><a href="../repository/Repository.html" title="interface in repository">Repository</a>&lt;java.lang.Long,&#8203;<a href="../domain/Book.html" title="class in model">Book</a>&gt;&nbsp;repository)</span></div>
 </section>
 </li>
 </ul>
@@ -244,24 +244,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <section class="detail">
 <h3><a id="addBook(domain.Book)">addBook</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Optional&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</span>&nbsp;<span class="memberName">addBook</span>&#8203;(<span class="arguments"><a href="../domain/Book.html" title="class in domain">Book</a>&nbsp;book)</span>
-                                 throws <span class="exceptions"><a href="../domain/validators/ValidatorException.html" title="class in domain.validators">ValidatorException</a></span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Optional&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</span>&nbsp;<span class="memberName">addBook</span>&#8203;(<span class="arguments"><a href="../domain/Book.html" title="class in model">Book</a>&nbsp;book)</span>
+                                 throws <span class="exceptions"><a href="../domain/validators/ValidatorException.html" title="class in model.validators">ValidatorException</a></span></div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../domain/validators/ValidatorException.html" title="class in domain.validators">ValidatorException</a></code></dd>
+<dd><code><a href="../domain/validators/ValidatorException.html" title="class in model.validators">ValidatorException</a></code></dd>
 </dl>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
 <h3><a id="getAllBooks()">getAllBooks</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Set&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</span>&nbsp;<span class="memberName">getAllBooks</span>()</div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Set&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</span>&nbsp;<span class="memberName">getAllBooks</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
 <h3><a id="filterBooksByName(java.lang.String)">filterBooksByName</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Set&lt;<a href="../domain/Book.html" title="class in domain">Book</a>&gt;</span>&nbsp;<span class="memberName">filterBooksByName</span>&#8203;(<span class="arguments">java.lang.String&nbsp;s)</span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Set&lt;<a href="../domain/Book.html" title="class in model">Book</a>&gt;</span>&nbsp;<span class="memberName">filterBooksByName</span>&#8203;(<span class="arguments">java.lang.String&nbsp;s)</span></div>
 </section>
 </li>
 </ul>

@@ -1,4 +1,5 @@
-rootProject.name = 'Book-Store'
-include 'server'
-include 'common'
-include 'client'
+rootProject.name = 'catalog-rest-template-start'
+include 'catalog-core'
+include 'catalog-web'
+include 'catalog-client'
+
